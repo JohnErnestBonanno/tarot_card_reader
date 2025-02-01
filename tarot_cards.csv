@@ -1,0 +1,79 @@
+Name,Suit,Number,Order
+The Fool,Major Arcane,0,1
+The Magician,Major Arcane,1,2
+The High Priestest,Major Arcane,2,3
+The Empress,Major Arcane,3,4
+The Emperor,Major Arcane,4,5
+The Hierophant,Major Arcane,5,6
+The Lovers,Major Arcane,6,7
+The Chariot,Major Arcane,7,8
+Strength,Major Arcane,8,9
+The Hermit,Major Arcane,9,10
+Wheel of Fortune,Major Arcane,10,11
+Justice,Major Arcane,11,12
+The Hanged Man,Major Arcane,12,13
+Death,Major Arcane,13,14
+Temperance,Major Arcane,14,15
+The Devil,Major Arcane,15,16
+The Tower,Major Arcane,16,17
+The Star,Major Arcane,17,18
+The Moon,Major Arcane,18,19
+The Sun,Major Arcane,19,20
+Judgement,Major Arcane,20,21
+The World,Major Arcane,21,22
+Ace of Wands,Wands,Ace,23
+Two of Wands,Wands,Two,24
+Three of Wands,Wands,Three,25
+Four of Wands,Wands,Four,26
+Five of Wands,Wands,Five,27
+Seven of Wands,Wands,Seven,28
+Six of Wands,Wands,Six,28
+Eight of Wands,Wands,Eight,29
+Nine of Wands,Wands,Nine,30
+Ten of Wands,Wands,Ten,31
+Page of Wands,Wands,Page,32
+Knight of Wands,Wands,Knight,33
+Queen of Wands,Wands,Queen,34
+King of Wands,Wands,King,35
+Ace of Cups,Cups,Ace,36
+Two of Cups,Cups,Two,37
+Three of Cups,Cups,Three,38
+Four of Cups,Cups,Four,39
+Five of Cups,Cups,Five,40
+Six of Cups,Cups,Six,41
+Seven of Cups,Cups,Seven,42
+Eight of Cups,Cups,Eight,43
+Nine of Cups,Cups,Nine,44
+Ten of Cups,Cups,Ten,45
+Page of Cups,Cups,Page,46
+Knight of Cups,Cups,Knight,47
+Queen of Cups,Cups,Queen,48
+King of Cups,Cups,King,49
+Ace of Swords,Swords,Ace,50
+Two of Swords,Swords,Two,51
+Three of Swords,Swords,Three,52
+Four of Swords,Swords,Four,53
+Five of Swords,Swords,Five,54
+Six of Swords,Swords,Six,55
+Seven of Swords,Swords,Seven,56
+Eight of Swords,Swords,Eight,57
+Nine of Swords,Swords,Nine,58
+Ten of Swords,Swords,Ten,59
+Page of Swords,Swords,Page,60
+Knight of Swords,Swords,Knight,61
+Queen of Swords,Swords,Queen,62
+King of Swords,Swords,King,63
+Ace of Pentacles,Pentacles,Ace,64
+Two of Pentacles,Pentacles,Two,65
+Three of Pentacles,Pentacles,Three,66
+Four of Pentacles,Pentacles,Four,67
+Five of Pentacles,Pentacles,Five,68
+Six of Pentacles,Pentacles,Six,69
+Seven of Pentacles,Pentacles,Seven,70
+Eight of Pentacles,Pentacles,Eight,71
+Nine of Pentacles,Pentacles,Nine,72
+Ten of Pentacles,Pentacles,Ten,73
+Knight of Pentacles,Pentacles,Knight,74
+Queen of Pentacles,Pentacles,Queen,76
+Page of Pentacles,Pentacles,Page,77
+King of Pentacles,Pentacles,King,78
