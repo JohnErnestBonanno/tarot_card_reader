@@ -15,15 +15,17 @@ def on_button_click():
 
 # Create the main window
 root = tk.Tk()
-root.title("Simple GUI")
-
-# Create a label
-label = tk.Label(root, text="Press the button", font=("Arial", 14))
-label.pack(pady=10)
+root.title("Tarot Deck")
 
 # Create a button
-button = tk.Button(root, text="Click Me", command=on_button_click)
+button = tk.Button(root, text="Draw a Card", command=on_button_click)
 button.pack(pady=20)
+
+# Create a label
+label = tk.Label(root, text="", font=("Arial", 14))
+label.pack(pady=10)
+
+
 
 # Run the GUI event loop
 root.mainloop()
