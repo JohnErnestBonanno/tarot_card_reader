@@ -16,6 +16,7 @@ def on_button_click():
 # Create the main window
 root = tk.Tk()
 root.title("Tarot Deck")
+root.geometry("200x150")
 
 # Create a button
 button = tk.Button(root, text="Draw a Card", command=on_button_click)
