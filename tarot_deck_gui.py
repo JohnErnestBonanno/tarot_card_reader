@@ -35,7 +35,7 @@ def on_button_click():
 # Create the main window
 root = tk.Tk()
 root.title("Tarot Deck")
-root.geometry("300x500")
+root.geometry("300x390")
 
 
 # Create a frame for the main content (image & label) to keep button at bottom
@@ -48,7 +48,7 @@ image_label.pack(pady=10)
 
 # Create a label for text (placed below the image inside content_frame)
 label = tk.Label(content_frame, text="", font=("Arial", 14))
-label.pack(pady=10)
+label.pack(pady=(20, 10))
 
 # Create a button and place it at the bottom
 button = tk.Button(root, text="Draw a Card", command=on_button_click)
