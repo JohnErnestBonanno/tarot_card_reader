@@ -37,17 +37,25 @@ root = tk.Tk()
 root.title("Tarot Deck")
 root.geometry("300x500")
 
-# Create a button
-button = tk.Button(root, text="Draw a Card", command=on_button_click)
-button.pack(pady=20)
 
-# Create a label for text
-label = tk.Label(root, text="", font=("Arial", 14))
+# Create a frame for the main content (image & label) to keep button at bottom
+content_frame = tk.Frame(root)
+content_frame.pack(expand=True, fill="both")
+
+# Create a label for images (placed at the top inside content_frame)
+image_label = tk.Label(content_frame)
+image_label.pack(pady=10)
+
+# Create a label for text (placed below the image inside content_frame)
+label = tk.Label(content_frame, text="", font=("Arial", 14))
 label.pack(pady=10)
 
-# Create a label for images
-image_label = tk.Label(root)
-image_label.pack(pady=10)
+# Create a button and place it at the bottom
+button = tk.Button(root, text="Draw a Card", command=on_button_click)
+button.pack(side="bottom", pady=20)  # Ensure button stays at the bottom
+
+
+
 
 
 # Run the GUI event loop
