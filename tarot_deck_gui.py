@@ -34,7 +34,7 @@ def on_button_click():
 
 # Create the main window
 root = tk.Tk()
-root.title("Tarot Deck")
+root.title("Rider-Waite Tarot Deck")
 root.geometry("300x390")
 
 
