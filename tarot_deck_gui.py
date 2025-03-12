@@ -3,6 +3,7 @@ from PIL import Image, ImageTk
 import pandas as pd
 import random
 import os
+from math import comb
 
 # Set seed for reproducibility
 random.seed(42)
@@ -14,9 +15,58 @@ image_dir = '/Users/jebbonanno/Documents/workspace/tarot_card_reader/image_folde
 # Load the tarot card data
 tarot_base_df = pd.read_csv(csv_file_path)
 
+
+### ---- Probability Calculations ---- ###
+prob_major_arcana = comb(22, 3) / comb(78, 3)
+prob_minor_arcana = 4 * comb(14, 3) / comb(78, 3)
+prob_three_kind = (comb(4, 3) * 14) / comb(78, 3)
+prob_royals = comb(16, 3) / comb(78, 3)
+prob_flush = (4 * comb(14, 3)) / comb(78, 3)
+
+# Probability of a straight
+single_straight = 4**3  # 4 choices per suit, 3 ranks in a straight
+all_straight = 8 * single_straight  # 8 possible straights
+prob_straight = all_straight / comb(78, 3)
+
+### ---- Condition Checking Function ---- ###
+def condition_check(three_card_pull):
+    court_list = ['Page', 'Knight', 'Queen', 'King']
+
+    # Initialize the message variable
+    message = ""
+
+    # Ensure 'number_digit' is sorted for straight condition
+    three_card_pull = three_card_pull.sort_values(by="number_digit").reset_index()
+
+    if three_card_pull['Number'].nunique() == 1:
+        message = f"Three of a Kind! Probability: {round((prob_three_kind*100),2)}%"
+
+    elif three_card_pull['Suit'].nunique() == 1 and three_card_pull.iloc[0]['Suit'] == 'Major Arcana':
+        message = f"All Major Arcana! Probability: {round((prob_major_arcana*100),2)}%"
+
+    elif three_card_pull['Suit'].nunique() == 1:
+        message = f"A Three Card Flush! Probability: {round((prob_flush*100),2)}%"
+
+    elif (three_card_pull['number_digit'][2] - three_card_pull['number_digit'][1] == 1 and 
+          three_card_pull['number_digit'][1] - three_card_pull['number_digit'][0] == 1):
+        message = f"A Straight! Probability: {round((prob_straight*100),2)}%"
+
+    elif three_card_pull['Number'].isin(court_list).all():
+        message = f"A Court Pull! Probability: {round((prob_royals*100),2)}%"
+
+    # Update probability label text
+    probability_label.config(text=message)
+
+### ---- GUI Functionality ---- ###
+
+
+
 def on_button_click():
     # Draw 3 random cards
     selected_rows = tarot_base_df.sample(3)
+
+    # Check for any special tarot conditions
+    condition_check(selected_rows)
 
     # Labels for positions
     time_labels = ["Past", "Present", "Future"]
@@ -53,11 +103,15 @@ def on_button_click():
 # Create the main window
 root = tk.Tk()
 root.title("Rider-Waite Tarot Deck")
-root.geometry("500x370")
+root.geometry("500x500")
 
 # Create a frame to hold the three cards
 card_frame = tk.Frame(root)
 card_frame.pack(pady=10)
+
+# Create a label to display probability messages
+probability_label = tk.Label(root, text="", font=("Arial", 12, "bold"), fg="red")
+probability_label.pack(pady=5)  # Place it above the button
 
 # Create a button and place it at the bottom
 button = tk.Button(root, text="Draw 3 Cards", command=on_button_click)
