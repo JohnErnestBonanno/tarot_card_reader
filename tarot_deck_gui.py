@@ -18,6 +18,9 @@ def on_button_click():
     # Draw 3 random cards
     selected_rows = tarot_base_df.sample(3)
 
+    # Labels for positions
+    time_labels = ["Past", "Present", "Future"]
+
     # Clear previous images and labels
     for widget in card_frame.winfo_children():
         widget.destroy()
@@ -28,6 +31,10 @@ def on_button_click():
         image_filename = row.file_path
         image_path = os.path.join(image_dir, image_filename)
 
+        # Create and place the "Past", "Present", "Future" labels
+        time_label = tk.Label(card_frame, text=time_labels[idx], font=("Arial", 14, "bold"))
+        time_label.grid(row=0, column=idx, padx=10, pady=5)
+
         # Load and display the image
         if os.path.exists(image_path):
             img = Image.open(image_path)
@@ -37,16 +44,16 @@ def on_button_click():
             # Create an image label and place it in the grid
             image_label = tk.Label(card_frame, image=img)
             image_label.image = img  # Keep reference to avoid garbage collection
-            image_label.grid(row=0, column=idx, padx=10, pady=5)  # Images in row 0
+            image_label.grid(row=1, column=idx, padx=10, pady=5)  # Images in row 1
 
             # Create a text label and place it below the image
             text_label = tk.Label(card_frame, text=card_name, font=("Arial", 12))
-            text_label.grid(row=1, column=idx, padx=10, pady=5)  # Text in row 1
+            text_label.grid(row=2, column=idx, padx=10, pady=5)  # Text in row 2
 
 # Create the main window
 root = tk.Tk()
 root.title("Rider-Waite Tarot Deck")
-root.geometry("500x400")
+root.geometry("500x370")
 
 # Create a frame to hold the three cards
 card_frame = tk.Frame(root)
