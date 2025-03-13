@@ -25,13 +25,10 @@ prob_minor_arcana = 4*comb(14, 3) / comb(78, 3)
 print(f"Probability all Minor Arcana: {round((prob_minor_arcana*100),2)}%")
 
 prob_three_kind = round((comb(4,3) * 14) / comb(78,3) * 100, 2)
-#print(f"Three of a Kind Probability: {round((prob_three_kind*100),2)}%")
 
 prob_royals = round(comb(16, 3) / comb(78 , 3) *100, 2) 
-#print(f"Probability of all Royals (Page, Knight, Queen, King): {round((prob_royals*100),2)}%")
 
 prob_flush = round((4 * comb(14,3)) / comb(78 , 3) * 100, 2)
-#print(f"Probability of a Flush: {round((prob_flush*100),2)}%")
 
 #prob_straight
 single_straight = 4**3  # 4 choices per suit, 3 ranks in a straight
