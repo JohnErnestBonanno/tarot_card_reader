@@ -33,14 +33,7 @@ prob_flush = round((4 * comb(14,3)) / comb(78 , 3) * 100, 2)
 #prob_straight
 single_straight = 4**3  # 4 choices per suit, 3 ranks in a straight
 all_straight = 8 * single_straight #(8 possible straights)
-prob_straight = (all_straight) / comb(78 , 3) 
-print(f"Probability of a Straight: {round((prob_straight*100),2)}%")
-
-
-
-
-
-
+prob_straight = round((all_straight) / comb(78 , 3) *100, 2)
 
 ### ---- Condition Checking Function ---- ###
 
@@ -59,7 +52,12 @@ def condition_check(selected_rows, num_cards):  # Add num_cards as a parameter
             message = f"A Flush! A {prob_flush}% chance."
         elif num_cards > 1 and selected_rows['Number'].isin(court_list).all():
             message = f"A Court Pull! A {prob_royals}% chance."
-    
+
+        elif num_cards == 3 and selected_rows['number_digit'].nunique() == 3:
+            sorted_digits = sorted(selected_rows['number_digit'])
+            if sorted_digits[2] - sorted_digits[1] == 1 and sorted_digits[1] - sorted_digits[0] == 1:
+                message = f"A Straight! A {prob_straight}% chance."
+
     probability_label.config(text=message)
 
 ### ---- GUI Functionality ---- ###
