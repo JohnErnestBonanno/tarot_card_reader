@@ -15,9 +15,39 @@ image_dir = '/Users/jebbonanno/Documents/workspace/tarot_card_reader/image_folde
 # Load the tarot card data
 tarot_base_df = pd.read_csv(csv_file_path)
 
+
+### ---- probabilities ---- ###
+
+prob_major_arcana = comb(22, 3) / comb(78, 3)
+print(f"Probality all Major Arcana: {round((prob_major_arcana*100),2)}%")
+
+prob_minor_arcana = 4*comb(14, 3) / comb(78, 3)
+print(f"Probability all Minor Arcana: {round((prob_minor_arcana*100),2)}%")
+
+prob_three_kind = round((comb(4,3) * 14) / comb(78,3) * 100, 2)
+#print(f"Three of a Kind Probability: {round((prob_three_kind*100),2)}%")
+
+prob_royals = round(comb(16, 3) / comb(78 , 3) *100, 2) 
+#print(f"Probability of all Royals (Page, Knight, Queen, King): {round((prob_royals*100),2)}%")
+
+prob_flush = round((4 * comb(14,3)) / comb(78 , 3) * 100, 2)
+#print(f"Probability of a Flush: {round((prob_flush*100),2)}%")
+
+#prob_straight
+single_straight = 4**3  # 4 choices per suit, 3 ranks in a straight
+all_straight = 8 * single_straight #(8 possible straights)
+prob_straight = (all_straight) / comb(78 , 3) 
+print(f"Probability of a Straight: {round((prob_straight*100),2)}%")
+
+
+
+
+
+
+
 ### ---- Condition Checking Function ---- ###
 
-def condition_check(selected_rows):
+def condition_check(selected_rows, num_cards):  # Add num_cards as a parameter
     court_list = ['Page', 'Knight', 'Queen', 'King']
     message = ""
 
@@ -25,12 +55,13 @@ def condition_check(selected_rows):
     if 'number_digit' in selected_rows.columns:
         selected_rows = selected_rows.sort_values(by="number_digit").reset_index()
 
-        if selected_rows['Number'].nunique() == 1:
-            message = "Three of a Kind!"
-        elif selected_rows['Suit'].nunique() == 1:
-            message = "A Flush!"
-        elif selected_rows['Number'].isin(court_list).all():
-            message = "A Court Pull!"
+        # Only check for "Three of a Kind" if more than one card is drawn
+        if num_cards > 1 and selected_rows['Number'].nunique() == 1:
+            message = f"Three of a Kind! A {prob_three_kind}% chance."
+        elif num_cards > 1 and selected_rows['Suit'].nunique() == 1:
+            message = f"A Flush! A {prob_flush}% chance."
+        elif num_cards > 1 and selected_rows['Number'].isin(court_list).all():
+            message = f"A Court Pull! A {prob_royals}% chance."
     
     probability_label.config(text=message)
 
@@ -41,14 +72,14 @@ def draw_cards(num_cards):
     selected_rows = tarot_base_df.sample(num_cards)
     
     # Check for any special tarot conditions
-    condition_check(selected_rows)
+    condition_check(selected_rows, num_cards)  # Pass num_cards here
     
     # Clear previous images and labels
     for widget in card_frame.winfo_children():
         widget.destroy()
     
     # Labels for positions (only for 3-card draw)
-    time_labels = ["Past", "Present", "Future"] if num_cards == 3 else ["Your Card"]
+    time_labels = ["Past", "Present", "Future"] if num_cards == 3 else ["Single Card"]
     
     # Loop through the selected cards and display them
     for idx, row in enumerate(selected_rows.itertuples()):
