@@ -41,7 +41,6 @@ def condition_check(selected_rows, num_cards):  # Add num_cards as a parameter
     if 'number_digit' in selected_rows.columns:
         selected_rows = selected_rows.sort_values(by="number_digit").reset_index()
 
-        # Only check for "Three of a Kind" if more than one card is drawn
         if num_cards > 1 and selected_rows['Suit'].nunique() == 1 and selected_rows['Suit'][0] == 'Major Arcane':
             message = f"Major Arcana Only! A {prob_major_arcana}% chance."
 
