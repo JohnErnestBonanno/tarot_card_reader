@@ -18,8 +18,8 @@ tarot_base_df = pd.read_csv(csv_file_path)
 
 ### ---- probabilities ---- ###
 
-prob_major_arcana = comb(22, 3) / comb(78, 3)
-print(f"Probality all Major Arcana: {round((prob_major_arcana*100),2)}%")
+prob_major_arcana = round(comb(22, 3) / comb(78, 3) * 100 , 2)
+#print(f"Probality all Major Arcana: {round((prob_major_arcana*100),2)}%")
 
 prob_minor_arcana = 4*comb(14, 3) / comb(78, 3)
 print(f"Probability all Minor Arcana: {round((prob_minor_arcana*100),2)}%")
@@ -46,10 +46,15 @@ def condition_check(selected_rows, num_cards):  # Add num_cards as a parameter
         selected_rows = selected_rows.sort_values(by="number_digit").reset_index()
 
         # Only check for "Three of a Kind" if more than one card is drawn
-        if num_cards > 1 and selected_rows['Number'].nunique() == 1:
+        if num_cards > 1 and selected_rows['Suit'].nunique() == 1 and selected_rows['Suit'][0] == 'Major Arcane':
+            message = f"Major Arcana Only! A {prob_major_arcana}% chance."
+
+        elif num_cards > 1 and selected_rows['Number'].nunique() == 1:
             message = f"Three of a Kind! A {prob_three_kind}% chance."
+        
         elif num_cards > 1 and selected_rows['Suit'].nunique() == 1:
             message = f"A Flush! A {prob_flush}% chance."
+        
         elif num_cards > 1 and selected_rows['Number'].isin(court_list).all():
             message = f"A Court Pull! A {prob_royals}% chance."
 
