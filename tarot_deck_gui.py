@@ -19,10 +19,6 @@ tarot_base_df = pd.read_csv(csv_file_path)
 ### ---- probabilities ---- ###
 
 prob_major_arcana = round(comb(22, 3) / comb(78, 3) * 100 , 2)
-#print(f"Probality all Major Arcana: {round((prob_major_arcana*100),2)}%")
-
-prob_minor_arcana = 4*comb(14, 3) / comb(78, 3)
-print(f"Probability all Minor Arcana: {round((prob_minor_arcana*100),2)}%")
 
 prob_three_kind = round((comb(4,3) * 14) / comb(78,3) * 100, 2)
 
