@@ -26,6 +26,11 @@ prob_royals = round(comb(16, 3) / comb(78 , 3) *100, 2)
 
 prob_flush = round((4 * comb(14,3)) / comb(78 , 3) * 100, 2)
 
+prob_royal_flush = 4/76076
+
+prob_straight_flush = 52/76076
+
+
 #prob_straight
 single_straight = 4**3  # 4 choices per suit, 3 ranks in a straight
 all_straight = 8 * single_straight #(8 possible straights)
