@@ -65,6 +65,10 @@ def condition_check(selected_rows, num_cards):  # Add num_cards as a parameter
 
     probability_label.config(text=message)
 
+
+
+    probability_label.config(text=message)
+
 ### ---- GUI Functionality ---- ###
 
 def draw_cards(num_cards):
