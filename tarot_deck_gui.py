@@ -46,8 +46,14 @@ def condition_check(selected_rows, num_cards):  # Add num_cards as a parameter
     if 'number_digit' in selected_rows.columns:
         selected_rows = selected_rows.sort_values(by="number_digit").reset_index()
 
+        #Straight Flush
+        if num_cards == 3 and selected_rows['Suit'].nunique() == 1:
+            sorted_numbers = sorted(selected_rows['number_digit'].tolist())
+            if all(sorted_numbers[i] + 1 == sorted_numbers[i + 1] for i in range(len(sorted_numbers) - 1)):
+                message = f"Straight Flush! A {prob_straight_flush}% chance."
+
         #Straight
-        if num_cards == 3 and selected_rows['number_digit'].nunique() == 3:
+        elif num_cards == 3 and selected_rows['number_digit'].nunique() == 3:
             sorted_digits = sorted(selected_rows['number_digit'])
             if sorted_digits[2] - sorted_digits[1] == 1 and sorted_digits[1] - sorted_digits[0] == 1:
                 message = f"A Straight! A {prob_straight}% chance."
@@ -67,10 +73,6 @@ def condition_check(selected_rows, num_cards):  # Add num_cards as a parameter
         #Major Arcana  
         elif num_cards > 1 and selected_rows['Suit'].nunique() == 1 and selected_rows['Suit'][0] == 'Major Arcane':
             message = f"Major Arcana Only! A {prob_major_arcana}% chance."
-
-    probability_label.config(text=message)
-
-
 
     probability_label.config(text=message)
 
