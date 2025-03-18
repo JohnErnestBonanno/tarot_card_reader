@@ -46,8 +46,12 @@ def condition_check(selected_rows, num_cards):  # Add num_cards as a parameter
     if 'number_digit' in selected_rows.columns:
         selected_rows = selected_rows.sort_values(by="number_digit").reset_index()
 
+        #Royal Flush
+        if num_cards == 3 and selected_rows['Suit'].nunique() == 1 and set(selected_rows['number_digit']) == {1, 13, 14}:
+            message = f"Royal Flush! A {prob_royal_flush}% chance."
+
         #Straight Flush
-        if num_cards == 3 and selected_rows['Suit'].nunique() == 1:
+        elif num_cards == 3 and selected_rows['Suit'].nunique() == 1:
             sorted_numbers = sorted(selected_rows['number_digit'].tolist())
             if all(sorted_numbers[i] + 1 == sorted_numbers[i + 1] for i in range(len(sorted_numbers) - 1)):
                 message = f"Straight Flush! A {prob_straight_flush}% chance."
