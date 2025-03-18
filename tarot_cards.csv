@@ -1,26 +1,26 @@
 ,Name,Suit,Number,Order,file_path,number_digit
-0,The Fool,Major Arcane,0,1,00-TheFool.jpg,0
-1,The Magician,Major Arcane,1,2,01-TheMagician.jpg,0
-2,The High Priestest,Major Arcane,2,3,02-TheHighPriestess.jpg,0
-3,The Empress,Major Arcane,3,4,03-TheEmpress.jpg,0
-4,The Emperor,Major Arcane,4,5,04-TheEmperor.jpg,0
-5,The Hierophant,Major Arcane,5,6,05-TheHierophant.jpg,0
-6,The Lovers,Major Arcane,6,7,06-TheLovers.jpg,0
-7,The Chariot,Major Arcane,7,8,07-TheChariot.jpg,0
-8,Strength,Major Arcane,8,9,08-Strength.jpg,0
-9,The Hermit,Major Arcane,9,10,09-TheHermit.jpg,0
-10,Wheel of Fortune,Major Arcane,10,11,10-WheelOfFortune.jpg,0
-11,Justice,Major Arcane,11,12,11-Justice.jpg,0
-12,The Hanged Man,Major Arcane,12,13,12-TheHangedMan.jpg,0
-13,Death,Major Arcane,13,14,13-Death.jpg,0
-14,Temperance,Major Arcane,14,15,14-Temperance.jpg,0
-15,The Devil,Major Arcane,15,16,15-TheDevil.jpg,0
-16,The Tower,Major Arcane,16,17,16-TheTower.jpg,0
-17,The Star,Major Arcane,17,18,17-TheStar.jpg,0
-18,The Moon,Major Arcane,18,19,18-TheMoon.jpg,0
-19,The Sun,Major Arcane,19,20,19-TheSun.jpg,0
-20,Judgement,Major Arcane,20,21,20-Judgement.jpg,0
-21,The World,Major Arcane,21,22,21-TheWorld.jpg,0
+0,The Fool,Major Arcane,0,1,00-TheFool.jpg,-1
+1,The Magician,Major Arcane,1,2,01-TheMagician.jpg,-1
+2,The High Priestest,Major Arcane,2,3,02-TheHighPriestess.jpg,-1
+3,The Empress,Major Arcane,3,4,03-TheEmpress.jpg,-1
+4,The Emperor,Major Arcane,4,5,04-TheEmperor.jpg,-1
+5,The Hierophant,Major Arcane,5,6,05-TheHierophant.jpg,-1
+6,The Lovers,Major Arcane,6,7,06-TheLovers.jpg,-1
+7,The Chariot,Major Arcane,7,8,07-TheChariot.jpg,-1
+8,Strength,Major Arcane,8,9,08-Strength.jpg,-1
+9,The Hermit,Major Arcane,9,10,09-TheHermit.jpg,-1
+10,Wheel of Fortune,Major Arcane,10,11,10-WheelOfFortune.jpg,-1
+11,Justice,Major Arcane,11,12,11-Justice.jpg,-1
+12,The Hanged Man,Major Arcane,12,13,12-TheHangedMan.jpg,-1
+13,Death,Major Arcane,13,14,13-Death.jpg,-1
+14,Temperance,Major Arcane,14,15,14-Temperance.jpg,-1
+15,The Devil,Major Arcane,15,16,15-TheDevil.jpg,-1
+16,The Tower,Major Arcane,16,17,16-TheTower.jpg,-1
+17,The Star,Major Arcane,17,18,17-TheStar.jpg,-1
+18,The Moon,Major Arcane,18,19,18-TheMoon.jpg,-1
+19,The Sun,Major Arcane,19,20,19-TheSun.jpg,-1
+20,Judgement,Major Arcane,20,21,20-Judgement.jpg,-1
+21,The World,Major Arcane,21,22,21-TheWorld.jpg,-1
 22,Ace of Wands,Wands,Ace,23,Wands01.jpg,1
 23,Two of Wands,Wands,Two,24,Wands02.jpg,2
 24,Three of Wands,Wands,Three,25,Wands03.jpg,3
